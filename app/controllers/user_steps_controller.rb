@@ -1,9 +1,15 @@
 class UserStepsController < ApplicationController
   include Wicked::Wizard
-  steps :second, :third
+  steps :second, :third, :forth
 
   def show
     @user = current_user
+    case step
+    when :second
+      jump_to :forth, word: 'secondとthirdをスキップしたよ！！！' if @user.zip.present?
+    when :third
+      skip_step word: 'thirdをスキップしたよ！！！' if @user.zip.blank?
+    end
     render_wizard
   end
 
