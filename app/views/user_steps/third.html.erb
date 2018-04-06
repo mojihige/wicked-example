@@ -1,0 +1,5 @@
+<%= form_with model: @user, url: wizard_path do |form| %>
+  <%= form.text_field :message %>
+  <%= form.submit %>
+  <%= link_to 'Back', previous_wizard_path %>
+<% end %>

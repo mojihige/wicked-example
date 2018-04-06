@@ -1,0 +1,6 @@
+<%= form_with model: @user, url: wizard_path do |form| %>
+  <%= form.text_field :zip %>
+  <%= form.text_field :address %>
+  <%= form.submit %>
+  <%= link_to 'Skip', next_wizard_path %>
+<% end %>
