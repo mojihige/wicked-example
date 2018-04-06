@@ -9,7 +9,7 @@ class UserStepsController < ApplicationController
 
   def update
     @user = current_user
-    @user.attriutes = params[:user]
+    @user.attributes = user_params
     render_wizard @user
   end
 
@@ -21,5 +21,9 @@ class UserStepsController < ApplicationController
 
   def current_user
     User.find_by(id: session[:user_id])
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :zip, :address, :message)
   end
 end
