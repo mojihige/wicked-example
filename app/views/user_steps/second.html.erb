@@ -1,6 +1,16 @@
 <%= form_with model: @user, url: wizard_path do |form| %>
-  <%= form.text_field :zip %>
-  <%= form.text_field :address %>
-  <%= form.submit %>
-  <%= link_to 'Skip', next_wizard_path %>
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :user_zip %>
+  </div>
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :user_address %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <div>
+    <%= link_to 'Skip', next_wizard_path %>
+  </div>
 <% end %>
